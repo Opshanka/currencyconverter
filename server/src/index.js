@@ -10,7 +10,9 @@ app.use(cors());
 
 //all currencies
 app.get("/getAllCurrencies", async (req, res) => {
-    const namesUrl = "https://openexchangerates.org/api/currencies.json?prettyprint=false&show_alternative=false&show_inactive=false&app_id=06114aadc7604cc8b216e7bc19488a24"
+
+     //Need to replace app id here CHECK https://openexchangerates.org/
+    const namesUrl = "https://openexchangerates.org/api/currencies.json?prettyprint=false&show_alternative=false&show_inactive=false&app_id=APPID"
 
     try {
         const namesResponse = await axios.get(namesUrl);
@@ -27,7 +29,9 @@ app.get("/convert", async (req, res) => {
         sourceCurrency,
         targetCurrency,
         amountSourceCurrency } = req.query;
-    const namesUrl = `https://openexchangerates.org/api/historical/${date}.json?app_id=dca16a93572c42aca2b4d21d0d567cb5`
+
+        //Need to replace app id here CHECK https://openexchangerates.org/
+    const namesUrl = `https://openexchangerates.org/api/historical/${date}.json?app_id=APPID`
     try {
         const dataResponse = await axios.get(namesUrl);
         const rates = dataResponse.data.rates;
